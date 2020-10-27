@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "442303313932",
+    "firebase_url": "https://chat-f3216.firebaseio.com",
+    "project_id": "chat-f3216",
+    "storage_bucket": "chat-f3216.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:442303313932:android:3817514e1c5d7b2ab95629",
+        "android_client_info": {
+          "package_name": "com.lucasbiancogs.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "442303313932-lq98rggkj9sdcpu20ovv3fajrs139quu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrcI31iGPksflwsl10t1XJRo-hLftqh1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "442303313932-lq98rggkj9sdcpu20ovv3fajrs139quu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
