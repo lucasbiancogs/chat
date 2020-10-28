@@ -1,6 +1,7 @@
 import 'package:chat/screens/auth_screen.dart';
 import 'package:chat/screens/loading_screen.dart';
 import 'package:chat/screens/something_went_wrong_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:chat/screens/chat_screen.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
         backgroundColor: Colors.red,
-        accentColor: Colors.green,
+        accentColor: Colors.green[900],
         accentColorBrightness: Brightness.light,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         buttonTheme: ButtonTheme.of(context).copyWith(
@@ -36,7 +37,16 @@ class MyApp extends StatelessWidget {
           }
 
           if(snapshot.connectionState == ConnectionState.done) {
-            return AuthScreen();
+            return StreamBuilder(
+              stream: FirebaseAuth.instance.authStateChanges(),
+              builder: (ctx, userSnapshot) {
+                if(userSnapshot.hasData) {
+                  return ChatScreen();
+                } else {
+                  return AuthScreen();
+                }
+              },
+            );
           }
 
           return LoadingScreen();

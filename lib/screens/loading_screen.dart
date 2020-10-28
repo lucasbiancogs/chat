@@ -9,7 +9,7 @@ class LoadingScreen extends StatelessWidget {
       ),
       body: Container(
         child: Center(
-          child: CircularProgressIndicator(),
+          child: LinearProgressIndicator(),
         ),
       ),
     );
