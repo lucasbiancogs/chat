@@ -30,11 +30,22 @@ class Messages extends StatelessWidget {
               final bool messageBelongsToMe =
                   FirebaseAuth.instance.currentUser.uid ==
                       chatDocs[i]['userId'];
+              
+              final bool isFirstMessage =
+                i == chatDocs.length - 1
+                || chatDocs[i]['userId'] != chatDocs[i + 1]['userId'];
+
+              final bool isLastMessage =
+                i == 0
+                || chatDocs[i]['userId'] != chatDocs[i - 1]['userId'];
 
               return MessageBubble(
                 chatDocs[i]['text'],
+                userName: chatDocs[i]['userName'],
                 belongsToMe: messageBelongsToMe,
                 key: ValueKey(chatDocs[i].id),
+                isFirstMessage: isFirstMessage,
+                isLastMessage: isLastMessage,
               );
             });
       },
