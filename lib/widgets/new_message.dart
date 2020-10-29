@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 
 class NewMessage extends StatefulWidget {
@@ -13,6 +14,11 @@ class _NewMessageState extends State<NewMessage> {
 
   Future<void> _sendMessage() async  {
     FocusScope.of(context).unfocus();
+
+    final fbm = FirebaseMessaging();
+
+    final String token = await fbm.getToken();
+    print(token);
 
     final User user = FirebaseAuth.instance.currentUser;
 
